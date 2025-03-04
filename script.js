@@ -42,6 +42,40 @@ function renderItems(items) {
     });
   }
 
+//debs function to create a dynamic list where users can add and remove items
+function debsFunction() {
+  const debsList = document.getElementById('data-container'); //debsList is where we want to work on the page
+  let isRemoveButton = false;
+  
+  let debsButtonContainer = document.createElement("div"); //debsButtonContainer is a new container
+  debsButtonContainer.style.display = "flex";   // Makes buttons appear in a row
+  debsButtonContainer.style.gap = "100px";      //puts a gap between the buttons
+  
+  debsList.appendChild(debsButtonContainer);    // Append the new container to the page
+  let debsAddButton = document.createElement("button"); //create an add button
+  debsAddButton.textContent = "Add List Item to Debs List"; //text for add button
+  debsButtonContainer.appendChild(debsAddButton); // Append the button to the container
+  let debsRemoveButton;
+
+  debsAddButton.addEventListener("click", () => {  //if there's a click, take action
+    let newItemOnDebsList = document.createElement("li");
+    let userInput = prompt("Enter text for the new list item:");
+    newItemOnDebsList.textContent = userInput;
+    debsList.appendChild(newItemOnDebsList); // Append it to the list
+    
+    if (!isRemoveButton) {
+    debsRemoveButton = document.createElement("button"); //Set value of a button to remove items
+    debsRemoveButton.textContent = "Remove List Item from Debs List"; //text for remove button
+    debsButtonContainer.appendChild(debsRemoveButton); //append the button to the new container
+    isRemoveButton = true;
+    debsRemoveButton.addEventListener("click", () => {
+      console.log("Number of children in debsList:");
+})
+}});
+
+}
+// debsFunction()
+
 /* IDEAS FOR ADDITIONAL INTERACTIONS
 
 1. Add functionality to highlight the navigation link of the current section as the user scrolls.
